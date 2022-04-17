@@ -5,5 +5,11 @@ class AddDefaultToPrivate < ActiveRecord::Migration[6.1]
       :private,
       true
     )
+
+    change_column_default(
+      :users,
+      :likes_count,
+      0
+    )
   end
 end
