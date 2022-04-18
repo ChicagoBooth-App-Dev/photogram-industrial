@@ -51,7 +51,25 @@ task sample_data: :environment do
         image: "{https://robohash.org/#{rand(999)}"
       )
       
-      
+      user.followers.each do | follower |
+        if rand < 0.5
+          photo.fans << follower
+        end
+
+        if rand < 0.25
+          photo.comments.create(
+            body: Faker::Quote::Chiquito,
+            author: follower
+          )
+        end
+      end    
     end
+    p photo.errors.full_messages
   end
+
+  p "#{Photo.count} photos have been created"
+  p "#{Comment.count} comments have been created"
+  p "#{Like.count} likes have been created"
+
+
 end
