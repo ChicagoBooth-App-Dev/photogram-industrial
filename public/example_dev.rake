@@ -46,7 +46,9 @@ task example_sample_data: :environment do
       )
 
       user.followers.each do |follower|
-        if rand < 0.5
+        if rand < 0.5 && user != follower
+          p user
+          p follower
           photo.fans << follower
         end
 
