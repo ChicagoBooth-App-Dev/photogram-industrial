@@ -13,6 +13,9 @@ task sample_data: :environment do
 
   usernames << "alice"
   usernames << "bob"
+  usernames << "craig"
+  usernames << "diana"
+  usernames << "enoch"
 
   usernames.each do | username |
     User.create(
@@ -51,7 +54,7 @@ task sample_data: :environment do
     rand(10).times do
       photo = user.own_photos.create(
         caption: "#{Faker::Emotion.adjective}", 
-        image: "{https://robohash.org/#{rand(999)}"
+        image: "https://robohash.org/#{rand(599)}.png"
       )
     
 
@@ -63,9 +66,9 @@ task sample_data: :environment do
             photo.fans << follower
         end
 
-        if rand < 0.25
+        if rand < 0.3
             photo.comments.create(
-              body: Faker::Quote.yoda,
+              body: Faker::Quote.jack_handey,
               author: follower
             )
         end
