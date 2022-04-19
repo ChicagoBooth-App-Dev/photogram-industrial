@@ -1,39 +1,4 @@
-<div class = "row">
-  <div class = "col-md-6 offset-md-3" >
-
-    <h1>
-      <%= "Hi #{@user.username.capitalize}!" %>
-    </h1>
-
-    <ul class="nav nav-pills nav-justified">
-      
-      <li class="nav-item">
-        <%= link_to "Posts", user_path(@user.username), class: "nav-link" %>
-      </li>
-
-      
-      <li class="nav-item">
-        <%= link_to "Liked Photos", liked_photos_path(@user.username), class: "nav-link" %>
-      </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="#">Feed</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled">Followers</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled">Following</a>
-      </li>
-    </ul>
-
-  </div>
-</div>
-
-
-
-
-
+<%= render "shared/tabs" %>
 
 <% current_user.own_photos.each do | photo |%>
 

@@ -1,0 +1,16 @@
+<%= render "shared/tabs" %>
+
+
+<div class="row">
+<div class="col-md-6 offset-md-3">
+<div class="list-group">
+
+<h2>Followers</h2>
+
+  <% current_user.leaders.each do |follower| %>
+    <button type="button" class="list-group-item list-group-item-action"> <%= follower.username %></button>
+  <% end %>
+
+</div>
+</div>
+</div>
